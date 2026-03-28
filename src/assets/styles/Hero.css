@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-color: #3b010b;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── Logo ── */
+.hero_logo {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+}
+
+.hero_logo img {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) saturate(100%) invert(88%) sepia(35%) saturate(500%)
+    hue-rotate(345deg) brightness(103%);
+}
+
+/* ── Navigation ── */
+.hero_nav {
+  position: absolute;
+  top: 36px;
+  right: 48px;
+  z-index: 10;
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero_nav a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f2d9a0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.hero_nav a:hover {
+  color: rgba(242, 229, 198, 0.6);
+}
+
+/* ── Фото — по центру, прибито к низу ── */
+.hero_photo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.hero_photo img {
+  height: 90vh;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+}
+
+/* ── Имя — поверх фото, справа по центру ── */
+.hero_name {
+  position: absolute;
+  bottom: 8vh;
+  right: 5%;
+  z-index: 2;
+  line-height: 0.9;
+  text-align: right;
+}
+
+.hero_name span {
+  display: block;
+  font-family: "La Belle Aurore", cursive;
+  font-weight: 400;
+  font-size: clamp(4.5rem, 9vw, 10rem);
+  color: #f2d9a0;
+  white-space: nowrap;
+}
+/* ── Подпись — слева снизу ── */
+.hero_tagline {
+  position: absolute;
+  bottom: 40vh;
+  left: 4%;
+  z-index: 2;
+  line-height: 1.5;
+}
+
+.hero_tagline p {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.5rem, 1.3vw, 2.4rem);
+  font-weight: 300;
+  font-style: normal;
+  color: #f2d9a0;
+  margin: 0;
+}
+
+.hero_tagline p:first-child {
+  font-family: "La Belle Aurore", cursive;
+  font-weight: 400;
+  color: #f2d9a0;
+  letter-spacing: 0.15em;
+  font-size: clamp(2.5rem, 1.3vw, 2.4rem);
+  margin-bottom: 8px;
+}
+
+/* ── Role ── */
+.hero_role {
+  position: absolute;
+  bottom: 7vh;
+  left: 4%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero_role p {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(0.65rem, 0.8vw, 0.8rem);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(242, 229, 198, 0.45);
+  margin: 0;
+}
+
+.hero_role_separator {
+  width: 32px;
+  height: 1px;
+  background: rgba(242, 217, 160, 0.3);
+  margin: 2px 0;
+}
+
+/* ── Scroll indicator ── */
+.hero_scroll {
+  position: absolute;
+  bottom: 24px;
+  left: 52.5%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.hero_scroll svg:first-child {
+  color: rgba(242, 217, 160, 0.35);
+  animation: arrowFade 1.8s ease-in-out infinite;
+}
+
+.hero_scroll svg:last-child {
+  color: rgba(242, 217, 160, 0.8);
+  animation: arrowFade 1.8s ease-in-out infinite 0.25s;
+  margin-top: -10px;
+}
+
+@keyframes arrowFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
