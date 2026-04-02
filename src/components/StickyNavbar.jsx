@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import "../assets/styles/StickyNavbar.css";
 import { motion, useScroll, useTransform } from "framer-motion";
-
+import logo from "../assets/images/logo.png";
 export default function StickyNavbar() {
   const { scrollY } = useScroll();
 
@@ -19,7 +19,7 @@ export default function StickyNavbar() {
       }}
     >
       <div className="navbar_sticky_logo">
-        <img src="/src/assets/images/logo.png" alt="AN" />
+        <img src={logo} alt="AN" />
       </div>
       <ul className="navbar_sticky_links">
         <li>
