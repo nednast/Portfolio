@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import "../assets/styles/Hero.css";
+import logo from "../assets/images/logo.png";
+import heroImg from "../assets/images/hero.png";
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -28,7 +30,7 @@ export default function Hero() {
   return (
     <section className="hero" ref={sectionRef}>
       <div className="hero_logo">
-        <img src="/src/assets/images/logo.png" alt="AN logo" />
+        <img src={logo} alt="AN logo" />
       </div>
 
       <nav>
@@ -53,7 +55,7 @@ export default function Hero() {
         className="hero_photo"
         style={{ y: photoY, opacity: photoOpacity, x: "-50%" }}
       >
-        <img src="/src/assets/images/hero.png" alt="Anastasia Nediak" />
+        <img src={heroImg} alt="Anastasia Nediak" />
       </motion.div>
 
       {/* Имя */}
@@ -70,7 +72,7 @@ export default function Hero() {
         className="hero_tagline"
         style={{ y: taglineY, opacity: taglineOpacity }}
       >
-        <p>Not just code ⸺</p>
+        <p>Not just code —</p>
         <p>I build experiences</p>
         <p>with taste, intention,</p>
         <p>and a little bit of attitude.</p>
