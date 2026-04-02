@@ -1,8 +1,32 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import "../assets/styles/Hero.css";
+
 export default function Hero() {
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Анимации привязаны к прогрессу скролла секции (0 - начало, 1 - конец)
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const photoOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const nameY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const nameOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  const taglineY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const taglineOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  // Role и Стрелки теперь тоже плавные
+  const roleOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const scrollOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+
   return (
-    <section className="hero">
+    <section className="hero" ref={sectionRef}>
       <div className="hero_logo">
         <img src="/src/assets/images/logo.png" alt="AN logo" />
       </div>
@@ -24,42 +48,54 @@ export default function Hero() {
         </ul>
       </nav>
 
-      <div className="hero_bottom">
-        <div className="hero_photo">
-          <img src="/src/assets/images/hero.png" alt="Anastasia Nediak" />
-        </div>
-        <div className="hero_name">
-          <span>Anastasia</span>
-          <span>Nediak</span>
-        </div>
+      {/* Фото — теперь всегда по центру благодаря x: "-50%" */}
+      <motion.div
+        className="hero_photo"
+        style={{ y: photoY, opacity: photoOpacity, x: "-50%" }}
+      >
+        <img src="/src/assets/images/hero.png" alt="Anastasia Nediak" />
+      </motion.div>
 
-        <div className="hero_tagline">
-          <p>Not just code ⸺</p>
-          <p>I build experiences</p>
-          <p>with taste, intention,</p>
-          <p>and a little bit of attitude.</p>
-        </div>
+      {/* Имя */}
+      <motion.div
+        className="hero_name"
+        style={{ y: nameY, opacity: nameOpacity }}
+      >
+        <span>Anastasia</span>
+        <span>Nediak</span>
+      </motion.div>
 
-        {/* Role — слева внизу */}
-        <div className="hero_role">
-          <p>UX / UI Designer</p>
-          <div className="hero_role_separator" />
-          <p>Full-Stack Developer</p>
-        </div>
+      {/* Tagline */}
+      <motion.div
+        className="hero_tagline"
+        style={{ y: taglineY, opacity: taglineOpacity }}
+      >
+        <p>Not just code ⸺</p>
+        <p>I build experiences</p>
+        <p>with taste, intention,</p>
+        <p>and a little bit of attitude.</p>
+      </motion.div>
 
-        {/* Scroll indicator */}
-        <div
-          className="hero_scroll"
-          onClick={() =>
-            document
-              .getElementById("about")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          <MdOutlineKeyboardArrowDown size={60} />
-          <MdOutlineKeyboardArrowDown size={60} />
-        </div>
-      </div>
+      {/* Role */}
+      <motion.div className="hero_role" style={{ opacity: roleOpacity }}>
+        <p>UX / UI Designer</p>
+        <div className="hero_role_separator" />
+        <p>Full-Stack Developer</p>
+      </motion.div>
+
+      {/* Scroll arrows */}
+      <motion.div
+        className="hero_scroll"
+        style={{ opacity: scrollOpacity }}
+        onClick={() =>
+          document
+            .getElementById("skills")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        <MdOutlineKeyboardArrowDown size={60} />
+        <MdOutlineKeyboardArrowDown size={60} />
+      </motion.div>
     </section>
   );
 }

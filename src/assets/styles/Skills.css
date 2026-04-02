@@ -1,0 +1,243 @@
+.skills_section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2e1c9;
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.skills_header {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.skills_expertise_bg {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-weight: 900;
+  color: rgba(59, 1, 11, 0.04);
+  text-transform: uppercase;
+  position: absolute;
+  top: -40px;
+  left: -10px;
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+.skills_core_comp {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #3b010b;
+  margin: 0;
+}
+
+.skills_title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #3b010b;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.skills_toggles {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 80px;
+  width: 100%;
+}
+
+.skills_toggle_card {
+  width: 280px;
+  height: 280px;
+  background: #fdf6ec; /* Чуть светлее фона для контраста */
+  border: 1px solid #3b010b; /* Четкая рамка сразу говорит, что это объект */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  /* Тень, которая создает эффект приподнятости над бумагой */
+  box-shadow: 4px 4px 0px 0px #3b010b;
+}
+
+/* Эффект при наведении — кнопка "вжимается" или приподнимается */
+.skills_toggle_card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px #f2d9a0; /* Золотая тень при наведении */
+  background: #ffffff;
+}
+
+/* Когда карточка активна — она "вжата" */
+.skills_toggle_card.active {
+  background: #3b010b;
+  box-shadow: 0px 0px 0px 0px #3b010b;
+  transform: translate(4px, 4px);
+}
+
+/* Оформление подсказки в углу */
+.click_hint {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3b010b;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.skills_toggle_card:hover .click_hint {
+  opacity: 1;
+  color: black;
+  transform: translateY(-2px);
+}
+
+.skills_toggle_card.active .click_hint {
+  display: none; /* Скрываем на активной */
+}
+
+/* Тексты внутри */
+.skills_toggle_type {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(59, 1, 11, 0.6);
+  margin-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.skills_toggle_title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #3b010b;
+  margin: 0;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+/* Цвета для активной кнопки */
+.skills_toggle_card.active .skills_toggle_type {
+  color: rgba(242, 217, 160, 0.5);
+}
+
+.skills_toggle_card.active .skills_toggle_title {
+  color: #f2d9a0;
+}
+
+/* Бегущие строки */
+.skills_marquee_wrapper {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.marquee_row {
+  display: flex;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.marquee_content {
+  display: flex;
+}
+
+.marquee_item {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.5rem, 8vw, 9rem); /* Увеличили размер как на фото */
+  padding: 0 40px;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Цвета на основе фото */
+
+.marquee_item.primary {
+  color: #3b010b;
+}
+
+.marquee_item.secondary {
+  color: rgba(59, 1, 11, 0.4);
+}
+
+.marquee_item.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(59, 1, 11, 0.3);
+}
+.marquee_item.accent {
+  color: #d4af37;
+}
+
+/* Шрифты на основе фото */
+.marquee_item.bold {
+  font-weight: 900;
+}
+
+.marquee_item.italic {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: uppercase; /* На фото курсив тоже в капсе */
+}
+
+.marquee_item.regular {
+  font-weight: 400;
+}
+
+/* Чтобы строки не слипались */
+.skills_marquee_wrapper {
+  margin: 60px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Увеличили зазор между рядами */
+}
+/* Статический список */
+.skills_static_container {
+  margin-top: 40px;
+  border-top: 1px solid rgba(59, 1, 11, 0.1);
+  padding-top: 40px;
+}
+
+.skills_ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.skills_ul li {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: #3b010b;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+
+.skills_ul li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  margin-right: 15px;
+}
