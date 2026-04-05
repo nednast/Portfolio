@@ -42,6 +42,9 @@ export default function Hero() {
             <a href="#skills">Skills</a>
           </li>
           <li>
+            <a href="#experience">Experience</a>
+          </li>
+          <li>
             <a href="#projects">Projects</a>
           </li>
           <li>
@@ -50,7 +53,6 @@ export default function Hero() {
         </ul>
       </nav>
 
-      {/* Фото — теперь всегда по центру благодаря x: "-50%" */}
       <motion.div
         className="hero_photo"
         style={{ y: photoY, opacity: photoOpacity, x: "-50%" }}

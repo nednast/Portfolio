@@ -37,7 +37,7 @@
     hue-rotate(345deg) brightness(103%);
 }
 
-/* ── Navigation hero (начальная) ── */
+/* ── Navigation hero  ── */
 .hero_nav {
   position: absolute;
   top: 36px;
@@ -82,7 +82,7 @@
   display: block;
 }
 
-/* ── Имя ── */
+/* ── Name ── */
 .hero_name {
   position: absolute;
   bottom: 8vh;
@@ -158,8 +158,8 @@
 /* ── Scroll indicator ── */
 .hero_scroll {
   position: absolute;
-  bottom: 24px;
-  left: 50%;
+  bottom: 10px;
+  left: 52.5%;
   transform: translateX(-50%);
   z-index: 6;
   display: flex;

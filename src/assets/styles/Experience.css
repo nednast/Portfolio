@@ -1,0 +1,497 @@
+/* Experience.css */
+
+.exp_section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #75162d;
+  padding: 120px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.exp_section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Заголовок как в Skills (справа) --- */
+.exp_header {
+  position: relative;
+  margin-bottom: 80px;
+  /* Не ограничиваем ширину, чтобы текст мог уходить вправо */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Все содержимое вправо */
+  text-align: right;
+}
+
+.exp_bg_text {
+  font-family: "Playfair Display", serif;
+  /* Размер как в Skills */
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-weight: 900;
+  /* Светлое золото с минимальной прозрачностью */
+  color: rgba(242, 217, 160, 0.04);
+  text-transform: uppercase;
+  position: absolute;
+  top: -40px;
+  right: -20px; /* Вылет вправо */
+  line-height: 0.8;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.exp_subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #f2d9a0;
+  margin: 0;
+}
+
+.exp_main_title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #f2d9a0;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* --- Bento Grid Контейнер --- */
+.exp_bento_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr; /* Три колонки */
+  grid-template-rows: 300px 300px; /* Фиксированная высота рядов */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 2;
+}
+
+/* Базовый стиль карточки */
+.bento_item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(242, 217, 160, 0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+/* Работа (Azur Info) - теперь только в верхнем левом углу */
+.bento_item.main_top {
+  grid-column: 1;
+  grid-row: 1;
+  background: #f2d9a0;
+  color: #3b010b;
+}
+
+.bento_item.main_top .bento_card_title {
+  color: #3b010b;
+}
+.bento_item.main_top .bento_card_company {
+  color: #75162d;
+}
+.bento_item.main_top .bento_icon,
+.bento_item.main_top .bento_date {
+  color: #75162d;
+}
+
+.bento_item.main_top .click_more {
+  color: #3b010b;
+}
+
+/* Языки - под работой */
+.bento_item.languages_card {
+  grid-column: 1;
+  grid-row: 2;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lang_list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.lang_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 6px;
+}
+
+.lang_name {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: #f2e1c9;
+}
+
+.lang_level {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: #d4af37;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.lang_progress_bg {
+  width: 100%;
+  height: 4px;
+  background: rgba(242, 217, 160, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lang_progress_fill {
+  height: 100%;
+  background: #d4af37;
+}
+
+/* --- ОСТАЛЬНЫЕ КАРТОЧКИ (Темные) --- */
+
+/* Университет (Линия сверху) */
+.bento_item.wide {
+  grid-column: 2 / span 2;
+  grid-row: 1;
+}
+
+/* Курс GoIT (Линия снизу слева) */
+.bento_item.medium {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Сертификат (Маленький квадрат снизу справа) */
+.bento_item.small {
+  grid-column: 3;
+  grid-row: 2;
+  border-style: dashed;
+}
+
+/* Ховер эффекты */
+.bento_item:hover {
+  transform: translateY(-5px);
+  border-color: #f2d9a0;
+}
+
+.bento_item.main:hover {
+  background: #fbda8d;
+}
+
+.bento_item:not(.main):hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Внутренние стили текста --- */
+.bento_card_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bento_date {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: #f2d9a0;
+  opacity: 0.6;
+}
+
+.bento_icon {
+  font-size: 24px;
+  color: #d4af37;
+}
+
+.bento_card_title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  color: #f2e1c9;
+  margin: 15px 0 5px 0;
+  line-height: 1.2;
+}
+
+.bento_card_company {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #d4af37;
+  letter-spacing: 0.1em;
+}
+
+.bento_card_desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #f2e1c9;
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+.bento_link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+/* --- Скачать CV --- */
+.cv_download_container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.cv_download_btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 40px;
+  background: transparent;
+  border: 1px solid #f2d9a0;
+  color: #f2d9a0;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cv_download_btn:hover {
+  background: #f2d9a0;
+  color: #75162d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 1024px) {
+  .exp_bento_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .bento_item.main,
+  .bento_item.wide,
+  .bento_item.medium,
+  .bento_item.small {
+    grid-column: span 1;
+    height: auto;
+    min-height: 280px;
+  }
+  .exp_header {
+    text-align: center;
+    align-items: center;
+  }
+  .exp_bg_text {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+/* Подсказка при наведении на карточку */
+.click_more {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  margin-top: 15px;
+  color: #f2d9a0;
+}
+
+/* Контейнер-обертка для центрирования */
+.modal_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 1, 11, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.modal_content {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  padding: 60px;
+  z-index: 1001;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 20px 20px 0px 0px #3b010b;
+}
+
+/* Внутренний контейнер для скролла, если текста много */
+.modal_inner_scroll {
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.modal_inner_scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal_inner_scroll::-webkit-scrollbar-thumb {
+  background: #d4af37;
+}
+
+/* Светлая тема (Работа) */
+.modal_content.light {
+  background: #f2d9a0;
+  color: #3b010b;
+}
+
+/* Темная тема (Остальное) */
+.modal_content.dark {
+  background: #3b010b;
+  color: #f2e1c9;
+  border: 1px solid #f2d9a0;
+}
+
+.close_btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  z-index: 1010;
+  transition: transform 0.1s ease;
+}
+
+.close_btn:hover {
+  opacity: 1;
+}
+
+.modal_date {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  opacity: 0.6;
+}
+.modal_title {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  margin: 10px 0;
+}
+.modal_company {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #d4af37;
+  letter-spacing: 0.2em;
+}
+
+.modal_divider {
+  width: 50px;
+  height: 2px;
+  background: currentColor;
+  margin: 30px 0;
+  opacity: 0.2;
+}
+
+.modal_full_desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.modal_link {
+  margin-top: 30px;
+  color: inherit;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal_points_list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal_points_list li {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 25px;
+  opacity: 0.9;
+}
+
+/* Золотой буллит */
+.modal_points_list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: #d4af37; /* Твое золото */
+  border-radius: 50%;
+}
+
+/* Если модалка светлая (Work), сделаем буллит темнее или ярче для контраста */
+.modal_content.light .modal_points_list li::before {
+  background-color: #75162d;
+}
+
+/* Улучшаем читаемость stack */
+.modal_stack {
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.tech_tag {
+  padding: 6px 18px;
+  border: 1px solid currentColor;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px; /* Квадратные или слегка закругленные смотрятся строже */
+  opacity: 0.8;
+}
