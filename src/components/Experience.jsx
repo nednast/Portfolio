@@ -96,21 +96,35 @@ export default function Experience() {
 
   return (
     <section id="experience" className="exp_section">
-      <div className="exp_header">
+      <motion.div
+        className="exp_header"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
         <div className="exp_bg_text">Journey</div>
         <p className="exp_subtitle">Professional Path</p>
         <h2 className="exp_main_title">Experience & Education</h2>
-      </div>
+      </motion.div>
 
       <div className="exp_bento_container">
         {/* Карточки опыта */}
-        {expData.map((item) => (
+        {expData.map((item, i) => (
           <motion.div
             key={item.id}
             layoutId={`card-${item.id}`}
             onClick={() => setSelectedId(item.id)}
             className={`bento_item ${item.size} ${item.type}`}
             whileHover={{ scale: 1.01 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.7,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: i * 0.1,
+            }}
           >
             <div className="bento_card_top">
               <span className="bento_date">{item.date}</span>
@@ -133,7 +147,13 @@ export default function Experience() {
         ))}
 
         {/* НОВАЯ КАРТОЧКА: Языки */}
-        <div className="bento_item languages_card">
+        <motion.div
+          className="bento_item languages_card"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
+        >
           <div className="bento_card_top">
             <span className="bento_date">Languages</span>
             <div className="bento_icon">
@@ -158,7 +178,7 @@ export default function Experience() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Модальное окно */}

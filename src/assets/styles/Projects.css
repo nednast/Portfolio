@@ -1,0 +1,376 @@
+/* Projects.css */
+
+.projects_section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2d9a0;
+  padding: 120px 40px 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.projects_header {
+  position: relative;
+  margin-bottom: 80px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.projects_bg_text {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-weight: 900;
+  color: rgba(59, 1, 11, 0.04);
+  text-transform: uppercase;
+  position: absolute;
+  top: -40px;
+  left: -10px;
+  line-height: 0.8;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.projects_subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #3b010b;
+  margin: 0;
+}
+
+.projects_main_title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #3b010b;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* ── Container ── */
+.projects_container {
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Image placeholder ── */
+.project_img_placeholder {
+  background-color: #2a000a;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 14px,
+    rgba(255, 255, 255, 0.022) 14px,
+    rgba(255, 255, 255, 0.022) 28px
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 230px;
+  flex-shrink: 0;
+}
+
+.project_img_placeholder.tall {
+  height: 100%;
+  min-height: 380px;
+}
+
+.project_img_number {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(5rem, 10vw, 9rem);
+  font-weight: 900;
+  color: rgba(242, 217, 160, 0.07);
+  line-height: 1;
+  user-select: none;
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+}
+
+.project_img_hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(242, 217, 160, 0.3);
+  z-index: 1;
+}
+
+.project_img_hint span {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ── Featured card ── */
+.project_featured {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 70px rgba(59, 1, 11, 0.18);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.project_featured:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 32px 90px rgba(59, 1, 11, 0.26);
+}
+
+.project_featured_info {
+  background: #fff9ef;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ── Grid ── */
+.projects_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* ── Grid card ── */
+.project_card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff9ef;
+  box-shadow: 0 8px 36px rgba(59, 1, 11, 0.1);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 56px rgba(59, 1, 11, 0.2);
+}
+
+.project_card_body {
+  padding: 26px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Overlay (slides up on hover) ── */
+.project_card_overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 0, 10, 0.96);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 32px;
+  gap: 22px;
+  transform: translateY(100%);
+  transition: transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project_card:hover .project_card_overlay {
+  transform: translateY(0);
+}
+
+.project_card_overlay .project_description {
+  color: rgba(242, 217, 160, 0.82);
+}
+
+/* ── Shared text ── */
+.project_category {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(59, 1, 11, 0.5);
+  margin: 0;
+}
+
+.project_title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  color: #3b010b;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.project_description {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #5a3020;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.project_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.project_tag {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3b010b;
+  background: rgba(59, 1, 11, 0.07);
+  border: 1px solid rgba(59, 1, 11, 0.14);
+  border-radius: 2px;
+  padding: 4px 10px;
+}
+
+/* ── Links ── */
+.project_links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project_link_btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+  background: #3b010b;
+  color: #f2d9a0;
+  border: 1px solid #3b010b;
+  transition: background 0.28s ease, color 0.28s ease;
+}
+
+.project_link_btn:hover {
+  background: transparent;
+  color: #3b010b;
+}
+
+.project_link_btn.ghost {
+  background: transparent;
+  color: #3b010b;
+}
+
+.project_link_btn.ghost:hover {
+  background: #3b010b;
+  color: #f2d9a0;
+}
+
+/* light variants (inside dark overlay) */
+.project_link_btn.light {
+  background: #f2d9a0;
+  color: #3b010b;
+  border-color: #f2d9a0;
+}
+
+.project_link_btn.light:hover {
+  background: transparent;
+  color: #f2d9a0;
+}
+
+.project_link_btn.ghost.light {
+  background: transparent;
+  color: #f2d9a0;
+  border-color: rgba(242, 217, 160, 0.45);
+}
+
+.project_link_btn.ghost.light:hover {
+  background: #f2d9a0;
+  color: #3b010b;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .projects_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects_section {
+    padding: 100px 24px 100px;
+  }
+
+  .project_featured {
+    grid-template-columns: 1fr;
+  }
+
+  .project_img_placeholder.tall {
+    min-height: 260px;
+  }
+
+  .project_featured_info {
+    padding: 36px 28px;
+  }
+
+  .projects_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Touch devices: overlay always visible ── */
+@media (hover: none) {
+  .project_card_overlay {
+    transform: translateY(0);
+    background: rgba(43, 0, 10, 0.91);
+  }
+
+  /* Slightly taller placeholder to accommodate always-visible overlay */
+  .project_img_placeholder {
+    height: 180px;
+  }
+}
+
+/* ── Small phones (≤ 480px) ── */
+@media (max-width: 480px) {
+  .projects_section {
+    padding: 80px 16px 80px;
+  }
+
+  .projects_header {
+    margin-bottom: 56px;
+  }
+
+  .projects_container {
+    gap: 20px;
+  }
+
+  .project_featured_info {
+    padding: 28px 20px;
+    gap: 14px;
+  }
+
+  .project_img_placeholder.tall {
+    min-height: 220px;
+  }
+
+  .project_card_body {
+    padding: 20px 20px 24px;
+  }
+
+  .project_card_overlay {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+}

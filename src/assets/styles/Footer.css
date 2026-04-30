@@ -1,0 +1,21 @@
+.footer {
+  background-color: #3b010b;
+  color: #f2e5c2;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 16px 16px;
+  }
+
+  .footer p {
+    font-size: 11px;
+  }
+}

@@ -4,6 +4,20 @@ import { MdArrowOutward } from "react-icons/md";
 import MarqueeRow from "./MarqueeRow";
 import "../assets/styles/Skills.css";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+};
+
 const skillData = {
   hard: [
     ["HTML5", "CSS3", "JavaScript", "React", "Vue.js"],
@@ -41,17 +55,30 @@ export default function Skills() {
   return (
     <section id="skills" className="skills_section">
       {/* Заголовок */}
-      <div className="skills_header">
+      <motion.div
+        className="skills_header"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+      >
         <div className="skills_expertise_bg">Expertise</div>
         <p className="skills_core_comp">Core Competencies</p>
         <h2 className="skills_title">Skills</h2>
-      </div>
+      </motion.div>
 
       {/* Квадраты-переключатели */}
-      <div className="skills_toggles">
-        <div
+      <motion.div
+        className="skills_toggles"
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        <motion.div
           className={`skills_toggle_card ${activeType === "hard" ? "active" : ""}`}
           onClick={() => setActiveType("hard")}
+          variants={fadeUp}
         >
           <div className="click_hint">
             <span>Explore</span>
@@ -59,10 +86,11 @@ export default function Skills() {
           </div>
           <p className="skills_toggle_type">Programming</p>
           <h3 className="skills_toggle_title">Hard Skills</h3>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
           className={`skills_toggle_card ${activeType === "soft" ? "active" : ""}`}
           onClick={() => setActiveType("soft")}
+          variants={fadeUp}
         >
           <div className="click_hint">
             <span>Explore</span>
@@ -70,8 +98,8 @@ export default function Skills() {
           </div>
           <p className="skills_toggle_type">Management</p>
           <h3 className="skills_toggle_title">Soft Skills</h3>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Декоративные бегущие строки */}
       <div className="skills_marquee_wrapper">

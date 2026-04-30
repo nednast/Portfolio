@@ -287,21 +287,118 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
-  .bento_item.main,
+
+  .bento_item.main_top,
   .bento_item.wide,
   .bento_item.medium,
-  .bento_item.small {
-    grid-column: span 1;
+  .bento_item.small,
+  .bento_item.languages_card {
+    grid-column: 1;
+    grid-row: auto;
     height: auto;
-    min-height: 280px;
+    min-height: 260px;
   }
+
   .exp_header {
     text-align: center;
     align-items: center;
   }
+
   .exp_bg_text {
     right: 50%;
     transform: translateX(50%);
+  }
+}
+
+/* ── Tablet / Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
+  .exp_section {
+    padding: 80px 24px;
+  }
+
+  .exp_header {
+    margin-bottom: 56px;
+  }
+
+  .bento_item {
+    padding: 24px;
+  }
+
+  .bento_card_title {
+    font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+  }
+
+  /* Modal adjustments */
+  .modal_content {
+    padding: 44px 32px;
+    box-shadow: none;
+  }
+
+  .modal_title {
+    font-size: 34px;
+  }
+
+  .modal_full_desc {
+    font-size: 15px;
+  }
+
+  .modal_points_list li {
+    font-size: 15px;
+  }
+}
+
+/* ── Small phones (≤ 480px) ── */
+@media (max-width: 480px) {
+  .exp_section {
+    padding: 60px 16px;
+  }
+
+  .exp_header {
+    margin-bottom: 40px;
+  }
+
+  .exp_bento_container {
+    gap: 14px;
+  }
+
+  .bento_item {
+    padding: 20px;
+    min-height: 220px;
+  }
+
+  .bento_card_title {
+    font-size: 1.3rem;
+  }
+
+  /* Modal compact */
+  .modal_content {
+    padding: 36px 20px;
+    max-height: 88vh;
+  }
+
+  .modal_title {
+    font-size: 26px;
+  }
+
+  .modal_company {
+    font-size: 13px;
+  }
+
+  .modal_points_list li {
+    font-size: 14px;
+  }
+
+  .modal_full_desc {
+    font-size: 14px;
+  }
+
+  .cv_download_btn {
+    padding: 16px 28px;
+    font-size: 12px;
+  }
+
+  .cv_download_container {
+    margin-top: 48px;
   }
 }
 

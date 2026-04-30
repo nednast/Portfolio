@@ -241,3 +241,85 @@
   border-radius: 50%;
   margin-right: 15px;
 }
+
+/* ── Tablet (≤ 768px) ── */
+@media (max-width: 768px) {
+  .skills_section {
+    padding: 80px 24px;
+  }
+
+  .skills_header {
+    margin-bottom: 48px;
+  }
+
+  .skills_toggles {
+    gap: 18px;
+    margin-bottom: 60px;
+  }
+
+  .skills_toggle_card {
+    width: 220px;
+    height: 220px;
+    padding: 24px;
+  }
+
+  .skills_marquee_wrapper {
+    margin: 40px 0;
+  }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  .skills_section {
+    padding: 60px 16px;
+  }
+
+  .skills_header {
+    margin-bottom: 36px;
+  }
+
+  .skills_toggles {
+    gap: 12px;
+    margin-bottom: 44px;
+  }
+
+  /* Two cards side-by-side filling row width */
+  .skills_toggle_card {
+    width: calc(50% - 6px);
+    height: 155px;
+    padding: 18px;
+    box-shadow: 3px 3px 0px 0px #3b010b;
+  }
+
+  .skills_toggle_title {
+    font-size: 22px;
+  }
+
+  .skills_toggle_type {
+    font-size: 10px;
+  }
+
+  .click_hint {
+    font-size: 9px;
+    top: 14px;
+    right: 14px;
+  }
+
+  .skills_marquee_wrapper {
+    margin: 28px 0;
+    gap: 12px;
+  }
+
+  .skills_static_container {
+    padding-top: 28px;
+  }
+
+  .skills_ul {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .skills_ul li {
+    font-size: 15px;
+  }
+}

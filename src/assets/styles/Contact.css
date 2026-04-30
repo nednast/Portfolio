@@ -1,0 +1,402 @@
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+
+.contact_section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #75162d;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Noise texture */
+.contact_section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Grid */
+.contact_container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Photo ── */
+.contact_photo {
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.contact_photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+}
+
+/* ── Right column ── */
+.contact_details {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 8% 60px 48px;
+  align-items: flex-end;
+  text-align: right;
+  position: relative;
+  z-index: 3;
+}
+
+/* ── Header ── */
+.contact_header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.contact_bg_text {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900;
+  color: rgba(242, 217, 160, 0.04);
+  text-transform: uppercase;
+  position: absolute;
+  top: -25px;
+  right: -15px;
+  line-height: 0.8;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.contact_subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(242, 217, 160, 0.6);
+  margin: 0;
+}
+
+.contact_main_title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  color: #f2d9a0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ── Motivation ── */
+.contact_motivation {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: rgba(242, 217, 160, 0.55);
+  line-height: 1.75;
+  max-width: 360px;
+  margin: 0 0 22px;
+}
+
+/* ── Info row ── */
+.contact_info_row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.contact_info_item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(242, 217, 160, 0.4);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.contact_info_item:hover {
+  color: rgba(242, 217, 160, 0.8);
+}
+
+.contact_info_dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(242, 217, 160, 0.2);
+  flex-shrink: 0;
+}
+
+/* ── Form ── */
+.contact_form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+/* Floating label field */
+.field_wrap {
+  position: relative;
+  width: 100%;
+}
+
+.field_wrap input,
+.field_wrap textarea {
+  width: 100%;
+  padding: 22px 0 9px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(242, 217, 160, 0.16);
+  color: #f2d9a0;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  text-align: left;
+  display: block;
+}
+
+.field_wrap textarea {
+  resize: none;
+  min-height: 85px;
+}
+
+.field_wrap label {
+  position: absolute;
+  left: 0;
+  top: 22px;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(242, 217, 160, 0.26);
+  transition: top 0.25s ease, font-size 0.25s ease, color 0.25s ease;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Label floats when focused or filled */
+.field_wrap input:focus ~ label,
+.field_wrap input:not(:placeholder-shown) ~ label,
+.field_wrap textarea:focus ~ label,
+.field_wrap textarea:not(:placeholder-shown) ~ label {
+  top: 3px;
+  font-size: 9px;
+  color: rgba(242, 217, 160, 0.5);
+}
+
+.field_wrap input:focus,
+.field_wrap textarea:focus {
+  border-bottom-color: rgba(242, 217, 160, 0.55);
+}
+
+/* ── Form footer ── */
+.contact_form_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+/* ── Button ── */
+.contact_btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  background: transparent;
+  color: #f2d9a0;
+  border: none;
+  border-bottom: 1px solid rgba(242, 217, 160, 0.28);
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  cursor: pointer;
+  transition: border-color 0.3s ease, gap 0.3s ease;
+}
+
+.contact_btn:hover:not(:disabled) {
+  border-bottom-color: #f2d9a0;
+  gap: 16px;
+}
+
+.contact_btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn_arrow {
+  transition: transform 0.3s ease;
+}
+
+.contact_btn:hover:not(:disabled) .btn_arrow {
+  transform: translateX(5px);
+}
+
+/* ── Status messages ── */
+.form_status {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.form_status.success {
+  color: rgba(242, 217, 160, 0.65);
+}
+
+.form_status.error {
+  color: rgba(230, 110, 110, 0.9);
+}
+
+/* ── Social links ── */
+.contact_socials {
+  display: flex;
+  gap: 22px;
+  margin-top: 38px;
+  justify-content: flex-end;
+}
+
+.social_link {
+  color: rgba(242, 217, 160, 0.28);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social_link:hover {
+  color: rgba(242, 217, 160, 0.85);
+  transform: translateY(-3px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .contact_section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .contact_container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact_photo {
+    height: 52vh;
+  }
+
+  .contact_details {
+    padding: 48px 28px 64px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact_header {
+    align-items: center;
+  }
+
+  .contact_bg_text {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .contact_form {
+    max-width: 100%;
+  }
+
+  .contact_form_footer {
+    align-items: center;
+  }
+
+  .contact_info_row {
+    justify-content: center;
+  }
+
+  .contact_socials {
+    justify-content: center;
+  }
+}
+
+/* ── Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
+  .contact_photo {
+    height: 44vh;
+  }
+
+  .contact_details {
+    padding: 40px 24px 52px;
+  }
+
+  .contact_motivation {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .contact_info_row {
+    gap: 10px;
+  }
+}
+
+/* ── Small phones (≤ 480px) ── */
+@media (max-width: 480px) {
+  .contact_photo {
+    height: 36vh;
+  }
+
+  .contact_details {
+    padding: 32px 16px 44px;
+  }
+
+  .contact_info_row {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .contact_info_dot {
+    display: none;
+  }
+
+  .contact_main_title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+  }
+
+  .contact_form {
+    max-width: 100%;
+  }
+
+  .field_wrap input,
+  .field_wrap textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  .contact_socials {
+    margin-top: 28px;
+    gap: 28px;
+  }
+}

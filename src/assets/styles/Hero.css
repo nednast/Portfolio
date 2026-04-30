@@ -194,3 +194,103 @@
     transform: translateY(6px);
   }
 }
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .hero_nav a {
+    font-size: 16px;
+    gap: 24px;
+  }
+
+  .hero_nav {
+    gap: 24px;
+    right: 32px;
+  }
+}
+
+/* ── Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
+  /* Hide hero nav — sticky navbar handles navigation */
+  .hero_nav {
+    display: none;
+  }
+
+  .hero_logo {
+    top: 20px;
+    left: 20px;
+  }
+
+  .hero_logo img {
+    height: 46px;
+  }
+
+  .hero_photo img {
+    height: 72vh;
+  }
+
+  .hero_name {
+    bottom: 6vh;
+    right: 4%;
+    line-height: 0.92;
+  }
+
+  .hero_name span {
+    font-size: clamp(3.2rem, 11vw, 5.5rem);
+  }
+
+  .hero_tagline {
+    bottom: 44vh;
+    left: 4%;
+  }
+
+  .hero_tagline p {
+    font-size: clamp(0.95rem, 3.2vw, 1.15rem);
+  }
+
+  .hero_tagline p:first-child {
+    font-size: clamp(1.8rem, 5.5vw, 2.4rem);
+    margin-bottom: 8px;
+  }
+
+  .hero_role {
+    bottom: 3.5vh;
+    left: 4%;
+  }
+
+  .hero_scroll {
+    left: 50%;
+    bottom: 6px;
+  }
+}
+
+/* ── Small phones (≤ 480px) ── */
+@media (max-width: 480px) {
+  .hero_photo img {
+    height: 62vh;
+  }
+
+  .hero_name span {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .hero_tagline {
+    bottom: 38vh;
+  }
+
+  .hero_tagline p {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  .hero_tagline p:first-child {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .hero_role p {
+    font-size: clamp(0.6rem, 2.5vw, 0.75rem);
+  }
+
+  /* Hide scroll indicator on very small screens */
+  .hero_scroll {
+    display: none;
+  }
+}

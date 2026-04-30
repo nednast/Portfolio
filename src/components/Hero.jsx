@@ -28,7 +28,7 @@ export default function Hero() {
   const scrollOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <section className="hero" ref={sectionRef}>
+    <section id="about" className="hero" ref={sectionRef}>
       <div className="hero_logo">
         <img src={logo} alt="AN logo" />
       </div>
