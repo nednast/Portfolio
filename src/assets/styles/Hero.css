@@ -210,18 +210,13 @@
 
 /* ── Mobile (≤ 768px) ── */
 @media (max-width: 768px) {
-  /* Hide hero nav — sticky navbar handles navigation */
+  /* Hide hero nav and logo — sticky navbar handles both */
   .hero_nav {
     display: none;
   }
 
   .hero_logo {
-    top: 20px;
-    left: 20px;
-  }
-
-  .hero_logo img {
-    height: 46px;
+    display: none;
   }
 
   .hero_photo img {

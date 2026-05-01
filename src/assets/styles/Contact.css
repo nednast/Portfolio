@@ -305,11 +305,17 @@ a.contact_info_item:hover {
     grid-template-columns: 1fr;
   }
 
+  /* Reset explicit grid placement so items stack vertically */
   .contact_photo {
+    grid-column: 1;
+    grid-row: 1;
     height: 52vh;
+    width: 100%;
   }
 
   .contact_details {
+    grid-column: 1;
+    grid-row: 2;
     padding: 48px 28px 64px;
     align-items: center;
     text-align: center;
@@ -347,6 +353,12 @@ a.contact_info_item:hover {
     height: 44vh;
   }
 
+  /* Portrait photo in landscape container — cover fills width cleanly */
+  .contact_photo img {
+    object-fit: cover;
+    object-position: top center;
+  }
+
   .contact_details {
     padding: 40px 24px 52px;
   }
@@ -364,7 +376,7 @@ a.contact_info_item:hover {
 /* ── Small phones (≤ 480px) ── */
 @media (max-width: 480px) {
   .contact_photo {
-    height: 36vh;
+    height: 32vh;
   }
 
   .contact_details {
